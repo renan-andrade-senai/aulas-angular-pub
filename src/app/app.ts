@@ -1,20 +1,19 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, FormsModule],
+  imports: [RouterOutlet],
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })
 export class App {
 
   protected comboValue = '0';
-  protected radioValue : string | null = '';
+  protected radioValue = '';
 
-  alterouCombo(val: string) {
-    this.comboValue = val;
+  alterouCombo(evento: any) {
+    this.comboValue = evento.target.value;
     console.log(this.comboValue)
   }
 
