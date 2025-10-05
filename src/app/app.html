@@ -1,40 +1,27 @@
 <div class="container">
-    <div class="col">
-        <div class="row">
-            <select (change)="alterouCombo($event)" [value]="comboValue" class="form-select" name="faixa-etaria" id="etaria">
-                <option value="0">Selecione uma opção</option>
-                <option value="1">0 - 14</option>
-                <option value="2">15 - 18</option>
-                <option value="3">19 - 45</option>
-                <option value="4">45 - 60</option>
-                <option value="5">60 +</option>
-            </select>
-        </div>
-    </div>
-
-    <div class="col mt-3">
-        <div class="row">
-            <div class="form-check">
-                <input (change)="alterouRadio('M')" value="M" class="form-check-input" type="radio" name="genero" id="masc">
-                <label for="masc" class="form-check-label">Masculino</label>
-            </div>
-            <div class="form-check">
-                <input (change)="alterouRadio('F')" value="F" class="form-check-input" type="radio" name="genero" id="fem">
-                <label for="fem" class="form-check-label">Feminino</label>
-            </div>
-        </div>
-    </div>
-
-    <div class="col mt-3">
-        <div class="row">
-            <h2>Faixa etária {{ getFaixa() }}</h2>
+    <div class="row">
+        <div class="col">
+            <label for="nome" class="form-label">Nome</label>
+            <input type="text" name="nome" id="nome" [(ngModel)]="nome" class="form-control">
         </div>
     </div>
     <div class="row">
         <div class="col">
-            <h2>Gênero {{ getGenero() }}</h2>
+            <label for="salario" class="form-label">Salário</label>
+            <input class="form-control" type="number" name="salario" id="salario" [(ngModel)]="salario">
+        </div>
+        <div class="col">
+            <label for="reajuste" class="form-label">Reajuste</label>
+            <input #re class="form-control" type="number" name="reajuste" id="reajuste" max="100" min="0" step="0.1" [(ngModel)]="reajuste" (ngModelChange)="validateMinMax($event)">
         </div>
     </div>
+    <div class="row">
+        <div class="col">
+            <h1>{{nome}}</h1>
+            <h1>Reajustado {{ salario * (1 + (reajuste / 100))}}</h1>
+        </div>
+    </div>
+
 </div>
 
 <router-outlet />

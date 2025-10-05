@@ -1,48 +1,25 @@
-import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Component, ViewChild } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, FormsModule, CommonModule],
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })
 export class App {
+  protected nome = '';
+  protected salario = 0;
+  protected reajuste = 0;
 
-  protected comboValue = '0';
-  protected radioValue = '';
+  @ViewChild('re') reinput: any;
 
-  alterouCombo(evento: any) {
-    this.comboValue = evento.target.value;
-    console.log(this.comboValue)
-  }
-
-  alterouRadio(val: string) {
-    this.radioValue = val;
-  }
-
-  getFaixa() {
-    switch (this.comboValue) {
-      case '1':
-        return '0 - 14';
-      case '2':
-        return '15 - 18';
-      case '3':
-        return '19 - 45';
-      case '4':
-        return '45 - 60';
-      case '5':
-        return '60 +';
-      default:
-        return'';
+  validateMinMax(value: number) {
+    if (value > 100) {
+      this.reajuste = 100;
+      this.reinput.nativeElement.value = 100;
     }
-  }
-
-  getGenero() {
-    if (this.radioValue === 'M') 
-      return 'Masculino';
-    else if (this.radioValue === 'F')
-      return 'Feminino';
-    return '';
   }
 }
