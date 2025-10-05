@@ -14,6 +14,9 @@ export class App {
   protected salario = 0;
   protected reajuste = 0;
 
+  protected nomeView = '';
+  protected valorReajustadoView = 0;
+
   @ViewChild('re') reinput: any;
 
   validateMinMax(value: number) {
@@ -21,5 +24,10 @@ export class App {
       this.reajuste = 100;
       this.reinput.nativeElement.value = 100;
     }
+  }
+
+  calcular() {
+    this.nomeView = this.nome.split(' ').reverse().join(' ');
+    this.valorReajustadoView = this.salario * (1 + this.reajuste / 100);
   }
 }
