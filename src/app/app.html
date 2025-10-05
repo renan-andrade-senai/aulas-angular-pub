@@ -22,11 +22,72 @@
         </div>
     </div>
     <div class="row">
-        <div class="col flex-row-reverse">
+        <div class="col d-flex flex-row-reverse">
             <button class="btn btn-primary" (click)="calcular()">Calcular</button>
         </div>
     </div>
+    <div class="row mt-5">
+        <div class="col">
+            <h1 class="text-decoration-underline">Exercício 2</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <label for="nome2" class="form-label">Nome</label>
+            <input [(ngModel)]="nome2" type="text" class="form-control" name="nome2" id="nome2">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <label for="cpf" class="form-label">CPF</label>
+            <input [(ngModel)]="cpf" type="text" class="form-control" name="cpf" id="cpf">
+        </div>
+        <div class="col">
+            <label for="nasc" class="form-label">Data de Nascimento</label>
+            <input [(ngModel)]="dtNascimento" type="date" class="form-control" name="nasc" id="nasc">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <label for="email" class="form-label">Email</label>
+            <input [(ngModel)]="email" type="text" class="form-control" name="email" id="email">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <label for="senha" class="form-label">Senha</label>
+            <input [(ngModel)]="senha" type="password" class="form-control" name="senha" id="senha">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <label for="tel" class="form-label">Telefone</label>
+            <input [(ngModel)]="telefone" type="text" class="form-control" name="tel" id="tel">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col d-flex flex-row-reverse">
+            <button class="btn btn-primary" (click)="salvar()" data-bs-toggle="modal" data-bs-target="#exampleModal">Salvar</button>
+        </div>
+    </div>
 
+</div>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Validação</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div style="white-space: pre;" class="modal-body">
+        {{validacoes}}
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+      </div>
+    </div>
+  </div>
 </div>
 
 <router-outlet />
