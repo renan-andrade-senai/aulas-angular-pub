@@ -1,40 +1,32 @@
 <div class="container">
-    <div class="col">
-        <div class="row">
-            <select (change)="alterouCombo($event)" [value]="comboValue" class="form-select" name="faixa-etaria" id="etaria">
-                <option value="0">Selecione uma opção</option>
-                <option value="1">0 - 14</option>
-                <option value="2">15 - 18</option>
-                <option value="3">19 - 45</option>
-                <option value="4">45 - 60</option>
-                <option value="5">60 +</option>
-            </select>
-        </div>
-    </div>
+    <ul>
+    @for (pessoa of pessoas; track $index) {
+      <li>{{pessoa.nome}} CPF: {{pessoa.cpf}}</li>
+    }
+  </ul>
+  <ol>
+    <li *ngFor="let pessoa of pessoas">
+      {{pessoa.nome}}
+    </li>
+  </ol>
+  <table class="table table-striped">
+    <thead>
+      <th>Nome</th>
+      <th>Idade</th>
+      <th>CPF</th>
+    </thead>
+    <tbody>
+      @for (pessoa of pessoas; track $index) {
+        <tr>
+          <td>{{pessoa.nome}}</td>
+          <td>{{pessoa.idade}}</td>
+          <td>{{pessoa.cpf}}</td>
+        </tr>
+      }
+    </tbody>
+  </table>
 
-    <div class="col mt-3">
-        <div class="row">
-            <div class="form-check">
-                <input (change)="alterouRadio('M')" value="M" class="form-check-input" type="radio" name="genero" id="masc">
-                <label for="masc" class="form-check-label">Masculino</label>
-            </div>
-            <div class="form-check">
-                <input (change)="alterouRadio('F')" value="F" class="form-check-input" type="radio" name="genero" id="fem">
-                <label for="fem" class="form-check-label">Feminino</label>
-            </div>
-        </div>
-    </div>
+  <input [(ngModel)]="pessoaEdicao.nome" type="text" name="" id="">
 
-    <div class="col mt-3">
-        <div class="row">
-            <h2>Faixa etária {{ getFaixa() }}</h2>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col">
-            <h2>Gênero {{ getGenero() }}</h2>
-        </div>
-    </div>
-</div>
 
 <router-outlet />
