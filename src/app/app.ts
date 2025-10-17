@@ -12,6 +12,9 @@ import { FormsModule } from '@angular/forms';
 })
 export class App {
 
+  protected tipoPessoa = ['Selecione uma opção', 'Física', 'Jurídica'];
+  protected opcao = '0';
+
   protected pessoas: Pessoa[] = [
     new Pessoa('José', 38, '000000000'),
     new Pessoa('Maria', 32, '11111'),
