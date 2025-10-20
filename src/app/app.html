@@ -1,32 +1,45 @@
 <div class="container">
-  <div class="row my-3">
-    <div class="col">
-      <select [(ngModel)]="opcao" (ngModelChange)="reordenarLista()" name="ordem" id="ordem" class="form-select">
-        <option value="0">Selecione uma opção</option>
-        <option value="1">Nome</option>
-        <option value="2">Fornecedor</option>
-        <option value="3">Estoque</option>
-        <option value="4">Preço</option>
-      </select>
+  <div class="row mt-4 mb-3">
+        <div class="col">
+            <select [(ngModel)]="statusSelecionado" (ngModelChange)="loadPrioridades()" name="status" id="status" class="form-select">
+                @for (op of statusCombo; track $index) {
+                    <option [value]="$index">{{op}}</option>
+                }
+            </select>
+        </div>
     </div>
-  </div>
-  <table class="table table-striped">
-    <thead>
-      <th>Nome</th>
-      <th>Fornecedor</th>
-      <th>Estoque</th>
-      <th>Preço</th>
-    </thead>
-    <tbody>
-      @for (produto of produtos; track $index) {
-        <tr>
-          <td>{{produto.nome}}</td>
-          <td>{{produto.fornecedor}}</td>
-          <td>{{produto.estoque}}</td>
-          <td>{{produto.preco}}</td>
-        </tr>
-      }
-    </tbody>
-  </table>
+    <div class="row">
+        <div class="col">
+            <ul>
+                @for (p of listaFiltrada; track $index) {
+                    <li>
+                        {{p.nome}} ({{p.status}}) - {{p.prioridade}}
+                        @if (p.status == 'Concluído') {
+                            <input [(ngModel)]="p.nota" type="number" name="nota" id="nota" placeholder="Nota" class="form-control d-inline me-2">
+                            <button type="button" class="btn btn-success">Salvar</button>
+                        }
+                    </li>
+                }
+            </ul>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <table class="table table-striped">
+                <thead>
+                    <th scope="col">Prioridade</th>
+                    <th scope="col">Quantidade</th>
+                </thead>
+                <tbody>
+                    @for (prioridade of prioridades; track $index) {
+                        <tr>
+                            <td>{{prioridade.prioridade}}</td>
+                            <td>{{prioridade.qtd}}</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
 
 <router-outlet />
