@@ -1,67 +1,7 @@
 <div class="container">
-    <h1>@IF e NgIf</h1>
-    <select [(ngModel)]="opcao" name="tipo" id="tipo" class="form-select">
-        @for (op of tipoPessoa; track $index) {
-            <option [value]="$index">{{op}}</option>
-        }
-    </select>
-    @if (opcao == '1') {
-        <div *ngIf="opcao == '1'" class="row">
-            <div class="col">
-                <label for="nome" class="form-label">Nome</label>
-                <input type="text" name="nome" id="nome" class="form-control">
-            </div>
-        </div>
-        <div class="row">
-            <div class="col">
-                <label for="CPF" class="form-label">CPF</label>
-                <input type="text" name="CPF" id="CPF" class="form-control">
-            </div>
-        </div>
-    } @else if (opcao == '2') {
-        <div class="row">
-            <div class="col">
-                <label for="razao-social" class="form-label">Razão Social</label>
-                <input type="text" name="razao-social" id="razao-social" class="form-control">
-            </div>
-        </div>
-        <div class="row">
-            <div class="col">
-                <label for="CNPJ" class="form-label">CNPJ</label>
-                <input type="text" name="CNPJ" id="CNPJ" class="form-control">
-            </div>
-        </div>
-    }
-    <hr>
-    <h1>@For e NgFor</h1>
-    <ul>
-    @for (pessoa of pessoas; track $index) {
-      <li>{{pessoa.nome}} CPF: {{pessoa.cpf}}</li>
-    }
-  </ul>
-  <ol>
-    <li *ngFor="let pessoa of pessoas">
-      {{pessoa.nome}}
-    </li>
-  </ol>
-  <table class="table table-striped">
-    <thead>
-      <th>Nome</th>
-      <th>Idade</th>
-      <th>CPF</th>
-    </thead>
-    <tbody>
-      @for (pessoa of pessoas; track $index) {
-        <tr>
-          <td>{{pessoa.nome}}</td>
-          <td>{{pessoa.idade}}</td>
-          <td>{{pessoa.cpf}}</td>
-        </tr>
-      }
-    </tbody>
-  </table>
-
-  <input [(ngModel)]="pessoaEdicao.nome" type="text" name="" id="">
-
+  <app-combobox label="Teste" [(value)]="statusSel" [options]="listaStatus"/>
+  <h2>{{statusSel}}</h2>
+  <app-combobox label="Prioridade" [options]="listaPrioridade"/>
+  <app-combobox label="Tipo pessoa" [options]="tipoPessoa"/>
 
 <router-outlet />

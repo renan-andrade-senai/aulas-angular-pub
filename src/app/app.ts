@@ -3,25 +3,23 @@ import { RouterOutlet } from '@angular/router';
 import { Pessoa } from '../shared/models/Pessoa';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { Projeto } from '../shared/models/Projeto';
+import { Combobox } from "./components/combobox/combobox";
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, FormsModule, CommonModule],
+  imports: [RouterOutlet, FormsModule, CommonModule, Combobox],
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })
 export class App {
+  protected listaStatus = ['Selecione uma opção', 'Em andamento', 'Pendente', 'Concluído'];
+  protected listaPrioridade = ['Alta', 'Média', 'Baixa'];
+  protected tipoPessoa = ['Física', 'Jurídica'];
 
-  protected tipoPessoa = ['Selecione uma opção', 'Física', 'Jurídica'];
-  protected opcao = '0';
+  protected statusSel = 0
 
-  protected pessoas: Pessoa[] = [
-    new Pessoa('José', 38, '000000000'),
-    new Pessoa('Maria', 32, '11111'),
-    new Pessoa('Ronaldo', 40, '22222'),
-  ];
 
-  protected pessoaEdicao = new Pessoa();
 
   
 }

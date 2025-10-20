@@ -1,0 +1,27 @@
+<div class="row">
+        <div class="col">
+            <label for="nome" class="form-label">Nome</label>
+            <input type="text" name="nome" id="nome" [(ngModel)]="nome" class="form-control">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <label for="salario" class="form-label">Salário</label>
+            <input class="form-control" type="number" name="salario" id="salario" [(ngModel)]="salario">
+        </div>
+        <div class="col">
+            <label for="reajuste" class="form-label">Reajuste</label>
+            <input #re class="form-control" type="number" name="reajuste" id="reajuste" max="100" min="0" step="0.1" [(ngModel)]="reajuste" (ngModelChange)="validateMinMax($event)">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <h1>Nome invertido: {{nomeView}}</h1>
+            <h1>Reajustado {{ valorReajustadoView }}</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col flex-row-reverse">
+            <button class="btn btn-primary" (click)="calcular()">Calcular</button>
+        </div>
+    </div>
