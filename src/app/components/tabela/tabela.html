@@ -1,0 +1,18 @@
+<table class="table table-striped">
+    <thead>
+        <tr>
+            @for (c of cols; track $index) {
+                <th>{{c}}</th>
+            }
+        </tr>
+    </thead>
+    <tbody>
+        @for (item of rows; track $index) {
+            <tr>
+                @for (i of item | keyvalue; track $index) {
+                    <td>{{i.value}}</td>
+                }
+            </tr>
+        }
+    </tbody>
+</table>

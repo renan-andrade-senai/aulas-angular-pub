@@ -1,45 +1,25 @@
+<app-navbar brand="SENAI" [items]="navItems" />
 <div class="container">
-  <div class="row mt-4 mb-3">
-        <div class="col">
-            <select [(ngModel)]="statusSelecionado" (ngModelChange)="loadPrioridades()" name="status" id="status" class="form-select">
-                @for (op of statusCombo; track $index) {
-                    <option [value]="$index">{{op}}</option>
-                }
-            </select>
+    <div class="row">
+        <div class="col mb-2">
+            <app-tabela [cols]="['Nome', 'Fornecedor', 'Estoque', 'Preço']" [rows]="produtos"/>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col mb-2">
+            <app-spinner color="danger"/>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col mb-2">
+            <app-list-group [items]="['Item 1', 'Item 2', 'Item 3']" />
         </div>
     </div>
     <div class="row">
         <div class="col">
-            <ul>
-                @for (p of listaFiltrada; track $index) {
-                    <li>
-                        {{p.nome}} ({{p.status}}) - {{p.prioridade}}
-                        @if (p.status == 'Concluído') {
-                            <input type="number" name="nota" id="nota" placeholder="Nota" class="form-control d-inline me-2">
-                            <button type="button" class="btn btn-success">Salvar</button>
-                        }
-                    </li>
-                }
-            </ul>
+            <app-input-group [(value)]="inputGroupValue" placeholder="Valor" [inicio]="['Valor','R$']" [fim]="[',00']" />
         </div>
     </div>
-    <div class="row">
-        <div class="col">
-            <table class="table table-striped">
-                <thead>
-                    <th scope="col">Prioridade</th>
-                    <th scope="col">Quantidade</th>
-                </thead>
-                <tbody>
-                    @for (prioridade of prioridades; track $index) {
-                        <tr>
-                            <td>{{prioridade.prioridade}}</td>
-                            <td>{{prioridade.qtd}}</td>
-                        </tr>
-                    }
-                </tbody>
-            </table>
-        </div>
-    </div>
+</div>
 
 <router-outlet />
