@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PrimeiroComp } from './primeiro-comp';
+import { ListGroup } from './list-group';
 
-describe('PrimeiroComp', () => {
-  let component: PrimeiroComp;
-  let fixture: ComponentFixture<PrimeiroComp>;
+describe('ListGroup', () => {
+  let component: ListGroup;
+  let fixture: ComponentFixture<ListGroup>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [PrimeiroComp]
+      imports: [ListGroup]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(PrimeiroComp);
+    fixture = TestBed.createComponent(ListGroup);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

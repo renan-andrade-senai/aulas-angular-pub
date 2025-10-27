@@ -1,7 +1,54 @@
+<app-navbar brand="SENAI" [items]="navItems"/>
 <div class="container">
-  <app-combobox label="Teste" [(value)]="statusSel" [options]="listaStatus"/>
-  <h2>{{statusSel}}</h2>
-  <app-combobox label="Prioridade" [options]="listaPrioridade"/>
-  <app-combobox label="Tipo pessoa" [options]="tipoPessoa"/>
+    <div class="row">
+        <div class="col-md-9">
+            <app-busca [(value)]="busca" placeholder="Buscar jogador"/>
+            @for (item of posFiltros; track $index) {
+                <div class="form-check form-check-inline mt-2">
+                    <input class="form-check-input" type="checkbox" id="inlineCheckbox{{item.nome}}" [(ngModel)]="item.selecionado">
+                    <label class="form-check-label" for="inlineCheckbox{{item.nome}}">{{item.nome}}</label>
+                </div>
+            }
+            <div class="row">
+                @for (j of jogadoresFiltro; track $index) {
+                    <div class="col-6 col-md-4 mt-3">
+                        <app-card-jogador [jogador]="j" (escalar)="escalouJogador($event)"/>
+                    </div>
+                }
+            </div>
+            
+        </div>
+        <div class="my-4 vr p-0 border border-2 rounded-5 border-primary"></div>
+        <div class="col-md">
+            @if (escalados.length > 0) {
+                <table class="table table-striped">
+                    <thead class="table-dark">
+                        <tr>
+                            <th scope="col">Jogador</th>
+                            <th scope="col">Posição</th>
+                            <th scope="col">Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody class="table-group-divider">
+                        @for (j of escalados; track $index) {
+                            <tr>
+                                <td>{{j.nome}}</td>
+                                <td>{{j.posicao}}</td>
+                                <td>
+                                    <button (click)="removeuJogador(j)" title="Remover" type="button" class="btn btn-danger">
+                                        <i class="bi bi-dash-circle"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            } @else {
+                <p class="display-6 text-center">Nenhum jogador escalado</p>
+            }
+
+        </div>
+    </div>
+</div>
 
 <router-outlet />

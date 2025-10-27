@@ -1,8 +1,0 @@
-<div>
-    <label class="form-label">{{label}}</label>
-    <select [(ngModel)]="value" (ngModelChange)="mudouValor()" class="form-select">
-        @for (opcao of options; track $index) {
-            <option [value]="$index">{{opcao}}</option>
-        }
-    </select>
-</div>

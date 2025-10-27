@@ -1,0 +1,9 @@
+<div class="input-group">
+    @for (item of inicio; track $index) {
+        <span class="input-group-text">{{item}}</span>
+    }
+    <input type="text" class="form-control" [placeholder]="placeholder">
+    @for (item of fim; track $index) {
+        <span class="input-group-text">{{item}}</span>
+    }
+</div>
