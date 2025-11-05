@@ -8,11 +8,18 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
-        @for (item of items; track $index) {
-            <li class="nav-item">
-                <a class="nav-link {{item.status}}">{{item.text}}</a>
-            </li>
-        }
+        <li class="nav-item">
+            <a routerLink="/" class="nav-link active">Home</a>
+        </li>
+        <li class="nav-item">
+            <a routerLink="/parametro/90" class="nav-link active">Parametro 90</a>
+        </li>
+        <li class="nav-item">
+            <a routerLink="/parametro/teste" class="nav-link active">Parametro teste</a>
+        </li>
+        <li class="nav-item">
+            <a routerLink="/teste" class="nav-link active">Spinner</a>
+        </li>
       </ul>
     </div>
   </div>

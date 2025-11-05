@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { InputGroup } from './input-group';
+import { PaginaInicial } from './pagina-inicial';
 
-describe('InputGroup', () => {
-  let component: InputGroup;
-  let fixture: ComponentFixture<InputGroup>;
+describe('PaginaInicial', () => {
+  let component: PaginaInicial;
+  let fixture: ComponentFixture<PaginaInicial>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [InputGroup]
+      imports: [PaginaInicial]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(InputGroup);
+    fixture = TestBed.createComponent(PaginaInicial);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

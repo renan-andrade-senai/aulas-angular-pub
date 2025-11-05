@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ListGroup } from './list-group';
+import { RotaParametro } from './rota-parametro';
 
-describe('ListGroup', () => {
-  let component: ListGroup;
-  let fixture: ComponentFixture<ListGroup>;
+describe('RotaParametro', () => {
+  let component: RotaParametro;
+  let fixture: ComponentFixture<RotaParametro>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ListGroup]
+      imports: [RotaParametro]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(ListGroup);
+    fixture = TestBed.createComponent(RotaParametro);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { RouterLink } from "@angular/router";
 
 interface NavItem {
   text: string,
@@ -7,7 +8,7 @@ interface NavItem {
 
 @Component({
   selector: 'app-navbar',
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './navbar.html',
   styleUrl: './navbar.scss'
 })
